@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JA CubanCode | Tiendas Online Profesionales en Cuba</title>
+    <meta name="description" content="Creamos tiendas online profesionales para tu negocio en Cuba. Catálogo digital, pedidos por WhatsApp, panel de administración. Desde $50 USD.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #d946ef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-border {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #d946ef);
+            padding: 2px;
+            border-radius: 1rem;
+        }
+        
+        .gradient-border > div {
+            background: #0f172a;
+            border-radius: calc(1rem - 2px);
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+        }
+        
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Phone mockup */
+        .phone-mockup {
+            background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+            border-radius: 2.5rem;
+            padding: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .phone-screen {
+            background: #fff;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .phone-notch {
+            width: 40%;
+            height: 1.5rem;
+            background: #1f2937;
+            border-radius: 0 0 1rem 1rem;
+            margin: 0 auto;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg">
+                    JA
+                </div>
+                <span class="font-bold text-lg">CubanCode</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#servicios" class="text-sm text-slate-300 hover:text-white transition">Servicios</a>
+                <a href="#demo" class="text-sm text-slate-300 hover:text-white transition">Demo</a>
+                <a href="#precios" class="text-sm text-slate-300 hover:text-white transition">Precios</a>
+                <a href="#contacto" class="text-sm text-slate-300 hover:text-white transition">Contacto</a>
+            </div>
+            <a href="https://wa.me/5350121476?text=Hola%2C%20me%20interesa%20una%20tienda%20online%20para%20mi%20negocio" target="_blank" class="px-4 py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg text-sm font-semibold hover:opacity-90 transition">
+                Cotizar Ahora
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 relative overflow-hidden">
+        <!-- Background decorations -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        <span class="text-sm text-slate-300">Disponible para nuevos proyectos</span>
+                    </div>
+                    
+                    <h1 class="hero-title text-5xl md:text-6xl font-black leading-tight mb-6">
+                        Tu Negocio Merece una
+                        <span class="gradient-text"> Tienda Online Profesional</span>
+                    </h1>
+                    
+                    <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                        Creamos tiendas online modernas con pedidos directos a tu WhatsApp. 
+                        <strong class="text-white">Sin complicaciones, sin pagos en línea.</strong>
+                        Tú controlas todo.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/5350121476?text=Hola%2C%20quiero%20una%20tienda%20online%20para%20mi%20negocio" target="_blank" class="group px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl font-semibold text-lg hover:opacity-90 transition flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Escribir por WhatsApp
+                        </a>
+                        <a href="#demo" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-semibold text-lg hover:bg-white/20 transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Ver Demo
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="mt-12 flex flex-wrap gap-8 justify-center lg:justify-start">
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">100%</div>
+                            <div class="text-sm text-slate-400">Satisfacción</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">3-5</div>
+                            <div class="text-sm text-slate-400">Días de entrega</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">24/7</div>
+                            <div class="text-sm text-slate-400">Tu tienda activa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phone Mockup -->
+                <div class="flex justify-center float-animation">
+                    <div class="phone-mockup w-72 md:w-80">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen aspect-[9/18] relative">
+                            <!-- Fake store content -->
+                            <div class="p-3">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500"></div>
+                                    <div class="flex gap-2">
+                                        <div class="w-16 h-6 bg-slate-100 rounded-lg"></div>
+                                        <div class="w-6 h-6 bg-slate-200 rounded-lg"></div>
+                                    </div>
+                                </div>
+                                <div class="h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl mb-3 flex items-center justify-center">
+                                    <span class="text-3xl">👕</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-slate-50 rounded-xl p-2">
+                                        <div class="h-16 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg mb-2 flex items-center justify-center">
+                                            <span class="text-xl">👔</span>
+                                        </div>
+                                        <div class="h-2 bg-slate-200 rounded w-3/4 mb-1"></div>
+                                        <div class="h-2 bg-green-200 rounded w-1/2"></div>
+                                    </div>
+                                    <div class="bg-slate-50 rounded-xl p-2">
+                                        <div class="h-16 bg-gradient-to-br from-pink-50 to-rose-100 rounded-lg mb-2 flex items-center justify-center">
+                                            <span class="text-xl">👟</span>
+                                        </div>
+                                        <div class="h-2 bg-slate-200 rounded w-3/4 mb-1"></div>
+                                        <div class="h-2 bg-green-200 rounded w-1/2"></div>
+                                    </div>
+                                    <div class="bg-slate-50 rounded-xl p-2">
+                                        <div class="h-16 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-lg mb-2 flex items-center justify-center">
+                                            <span class="text-xl">👜</span>
+                                        </div>
+                                        <div class="h-2 bg-slate-200 rounded w-3/4 mb-1"></div>
+                                        <div class="h-2 bg-green-200 rounded w-1/2"></div>
+                                    </div>
+                                    <div class="bg-slate-50 rounded-xl p-2">
+                                        <div class="h-16 bg-gradient-to-br from-emerald-50 to-teal-100 rounded-lg mb-2 flex items-center justify-center">
+                                            <span class="text-xl">⌚</span>
+                                        </div>
+                                        <div class="h-2 bg-slate-200 rounded w-3/4 mb-1"></div>
+                                        <div class="h-2 bg-green-200 rounded w-1/2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- WhatsApp button -->
+                            <div class="absolute bottom-4 right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg pulse-glow">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 px-4 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Te Suena Familiar?</h2>
+                <p class="text-slate-400 text-lg">Los problemas de vender solo por WhatsApp</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="scroll-fade bg-red-500/10 border border-red-500/20 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">😫</div>
+                    <h3 class="font-semibold mb-2">Pierdes Tiempo</h3>
+                    <p class="text-sm text-slate-400">Enviando fotos y precios uno por uno a cada cliente</p>
+                </div>
+                <div class="scroll-fade bg-red-500/10 border border-red-500/20 rounded-2xl p-6 text-center" style="transition-delay: 0.1s">
+                    <div class="text-4xl mb-4">😕</div>
+                    <h3 class="font-semibold mb-2">Clientes Confundidos</h3>
+                    <p class="text-sm text-slate-400">No saben precios, tallas disponibles ni cómo pedir</p>
+                </div>
+                <div class="scroll-fade bg-red-500/10 border border-red-500/20 rounded-2xl p-6 text-center" style="transition-delay: 0.2s">
+                    <div class="text-4xl mb-4">💸</div>
+                    <h3 class="font-semibold mb-2">Ventas Perdidas</h3>
+                    <p class="text-sm text-slate-400">Clientes que no esperan tu respuesta y compran en otro lado</p>
+                </div>
+                <div class="scroll-fade bg-red-500/10 border border-red-500/20 rounded-2xl p-6 text-center" style="transition-delay: 0.3s">
+                    <div class="text-4xl mb-4">📉</div>
+                    <h3 class="font-semibold mb-2">Imagen Poco Profesional</h3>
+                    <p class="text-sm text-slate-400">Tu negocio se ve informal frente a la competencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="servicios" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">La Solución: <span class="gradient-text">Tu Tienda Online</span></h2>
+                <p class="text-slate-400 text-lg">Todo lo que necesitas para vender más y mejor</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        🛍️
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Catálogo Profesional</h3>
+                    <p class="text-slate-400">Todos tus productos organizados con fotos, precios, tallas y colores. El cliente ve todo sin preguntar.</p>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.1s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        📱
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Pedidos por WhatsApp</h3>
+                    <p class="text-slate-400">El cliente arma su pedido y te llega directo a WhatsApp con todos los detalles. Sin pasarelas de pago.</p>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.2s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        ⚙️
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Panel de Control</h3>
+                    <p class="text-slate-400">Tú controlas todo: añadir productos, cambiar precios, actualizar stock. Sin necesitar programador.</p>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.3s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        🎨
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Diseño Personalizado</h3>
+                    <p class="text-slate-400">Tu marca, tus colores, tu estilo. Una tienda única que refleja tu negocio.</p>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.4s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        📊
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Carrito de Compras</h3>
+                    <p class="text-slate-400">El cliente añade varios productos, ve el total y hace un solo pedido. Más ventas por cliente.</p>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.5s">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        📍
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Entrega Organizada</h3>
+                    <p class="text-slate-400">Formulario con provincia, municipio y dirección. Pedidos claros y sin confusiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 px-4 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mira Cómo <span class="gradient-text">Funciona</span></h2>
+                <p class="text-slate-400 text-lg">Así se ve una tienda online profesional</p>
+            </div>
+            
+            <div class="gradient-border scroll-fade">
+                <div class="p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Experiencia del Cliente</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">1</span>
+                                    <div>
+                                        <p class="font-medium">Entra a tu tienda</p>
+                                        <p class="text-sm text-slate-400">Ve todos los productos con fotos y precios</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">2</span>
+                                    <div>
+                                        <p class="font-medium">Elige talla y color</p>
+                                        <p class="text-sm text-slate-400">Selecciona exactamente lo que quiere</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">3</span>
+                                    <div>
+                                        <p class="font-medium">Añade al carrito</p>
+                                        <p class="text-sm text-slate-400">Puede pedir varios productos a la vez</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">4</span>
+                                    <div>
+                                        <p class="font-medium">Envía pedido por WhatsApp</p>
+                                        <p class="text-sm text-slate-400">Te llega todo organizado con dirección</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <a href="https://wa.me/5350121476?text=Hola%2C%20quiero%20ver%20una%20demo%20en%20vivo" target="_blank" class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl font-semibold hover:opacity-90 transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
+                                Pedir Demo en Vivo
+                            </a>
+                        </div>
+                        
+                        <div class="bg-slate-800/50 rounded-2xl p-6">
+                            <p class="text-sm text-slate-400 mb-4">📩 Así te llega el pedido:</p>
+                            <div class="bg-slate-900 rounded-xl p-4 font-mono text-sm">
+                                <p class="text-green-400">🛒 <strong>NUEVO PEDIDO</strong></p>
+                                <p class="text-slate-400 mt-2">━━━━━━━━━━━━━━</p>
+                                <p class="text-white mt-2">👤 María García</p>
+                                <p class="text-white">📞 +53 5555 1234</p>
+                                <p class="text-white">📍 Calle 23 #456, Vedado</p>
+                                <p class="text-white">🏘️ Plaza de la Revolución</p>
+                                <p class="text-white">🌎 La Habana</p>
+                                <p class="text-slate-400 mt-2">━━━━━━━━━━━━━━</p>
+                                <p class="text-white mt-2">📦 <strong>PRODUCTOS</strong></p>
+                                <p class="text-white mt-1">1️⃣ Pulóver Nike</p>
+                                <p class="text-slate-300">   💰 $25 · Talla M · Negro</p>
+                                <p class="text-white mt-1">2️⃣ Shorts Adidas</p>
+                                <p class="text-slate-300">   💰 $18 · Talla L · Azul</p>
+                                <p class="text-slate-400 mt-2">━━━━━━━━━━━━━━</p>
+                                <p class="text-green-400 mt-2 text-lg">💰 <strong>TOTAL: $43</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Planes y <span class="gradient-text">Precios</span></h2>
+                <p class="text-slate-400 text-lg">Elige el que mejor se adapte a tu negocio</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Básico -->
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Básico</h3>
+                        <p class="text-slate-400 text-sm">Para empezar</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$50</span>
+                            <span class="text-slate-400"> USD</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Hasta 20 productos
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Catálogo profesional
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Pedidos por WhatsApp
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Diseño responsive
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Hosting incluido
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-500">
+                            <span>✗</span> Panel de administración
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-slate-500">
+                            <span>✗</span> Carrito de compras
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5350121476?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20%28%2450%29" target="_blank" class="block w-full py-3 text-center border border-white/20 rounded-xl font-semibold hover:bg-white/10 transition">
+                        Elegir Plan
+                    </a>
+                </div>
+                
+                <!-- Profesional -->
+                <div class="scroll-fade relative bg-gradient-to-b from-purple-500/20 to-pink-500/20 border-2 border-purple-500/50 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.1s">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-xs font-semibold">
+                        MÁS POPULAR
+                    </div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Profesional</h3>
+                        <p class="text-slate-400 text-sm">Para crecer</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold gradient-text">$100</span>
+                            <span class="text-slate-400"> USD</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Hasta 50 productos
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Catálogo profesional
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Pedidos por WhatsApp
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Diseño responsive
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Hosting incluido
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> <strong>Panel de administración</strong>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> <strong>Carrito de compras</strong>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5350121476?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20%28%24100%29" target="_blank" class="block w-full py-3 text-center bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-semibold hover:opacity-90 transition">
+                        Elegir Plan
+                    </a>
+                </div>
+                
+                <!-- Premium -->
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300" style="transition-delay: 0.2s">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Premium</h3>
+                        <p class="text-slate-400 text-sm">Todo incluido</p>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$200</span>
+                            <span class="text-slate-400"> USD</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> <strong>Productos ilimitados</strong>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Todo del plan Profesional
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Diseño 100% personalizado
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Capacitación incluida
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Soporte prioritario
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> 3 meses de mantenimiento
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <span class="text-green-400">✓</span> Dominio personalizado
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5350121476?text=Hola%2C%20me%20interesa%20el%20plan%20Premium%20%28%24200%29" target="_blank" class="block w-full py-3 text-center border border-white/20 rounded-xl font-semibold hover:bg-white/10 transition">
+                        Elegir Plan
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Maintenance -->
+            <div class="mt-8 text-center scroll-fade">
+                <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4">
+                    <span class="text-2xl">🔧</span>
+                    <div class="text-left">
+                        <p class="font-semibold">Mantenimiento Mensual</p>
+                        <p class="text-sm text-slate-400">Actualizaciones y soporte continuo</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-2xl font-bold">$15</p>
+                        <p class="text-xs text-slate-400">USD/mes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 px-4 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Cómo <span class="gradient-text">Trabajamos</span>?</h2>
+                <p class="text-slate-400 text-lg">Proceso simple y transparente</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="scroll-fade text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        1
+                    </div>
+                    <h3 class="font-semibold mb-2">Conversamos</h3>
+                    <p class="text-sm text-slate-400">Me cuentas sobre tu negocio y qué necesitas</p>
+                </div>
+                <div class="scroll-fade text-center" style="transition-delay: 0.1s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        2
+                    </div>
+                    <h3 class="font-semibold mb-2">Diseño</h3>
+                    <p class="text-sm text-slate-400">Creo tu tienda con tu marca y productos</p>
+                </div>
+                <div class="scroll-fade text-center" style="transition-delay: 0.2s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        3
+                    </div>
+                    <h3 class="font-semibold mb-2">Revisión</h3>
+                    <p class="text-sm text-slate-400">La revisamos juntos y hacemos ajustes</p>
+                </div>
+                <div class="scroll-fade text-center" style="transition-delay: 0.3s">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        4
+                    </div>
+                    <h3 class="font-semibold mb-2">¡Lista!</h3>
+                    <p class="text-sm text-slate-400">Tu tienda online activa y lista para vender</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo Que Dicen <span class="gradient-text">Mis Clientes</span></h2>
+                <p class="text-slate-400 text-lg">Experiencias reales de negocios como el tuyo</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-slate-300 mb-4">"Antes perdía horas enviando fotos. Ahora los clientes ven todo solos y me escriben con el pedido listo. Me cambió la vida."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center font-bold">M</div>
+                        <div>
+                            <p class="font-medium text-sm">María G.</p>
+                            <p class="text-xs text-slate-500">Venta de ropa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6" style="transition-delay: 0.1s">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-slate-300 mb-4">"Súper profesional y rápido. Mi negocio ahora se ve serio. Los clientes confían más y vendo más. 100% recomendado."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center font-bold">C</div>
+                        <div>
+                            <p class="font-medium text-sm">Carlos R.</p>
+                            <p class="text-xs text-slate-500">Tienda de zapatos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-fade bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6" style="transition-delay: 0.2s">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="text-slate-300 mb-4">"El panel es facilísimo de usar. Yo misma actualizo los precios sin ayuda. La inversión valió totalmente la pena."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center font-bold">L</div>
+                        <div>
+                            <p class="font-medium text-sm">Laura M.</p>
+                            <p class="text-xs text-slate-500">Mipyme de accesorios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contacto" class="py-20 px-4 bg-gradient-to-b from-slate-900/50 to-transparent">
+        <div class="max-w-4xl mx-auto">
+            <div class="scroll-fade gradient-border">
+                <div class="p-8 md:p-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Listo Para Tener Tu <span class="gradient-text">Tienda Online</span>?</h2>
+                    <p class="text-slate-400 text-lg mb-8">Escríbeme ahora y en 3-5 días tu negocio estará vendiendo online</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://wa.me/5350121476?text=Hola%2C%20me%20interesa%20una%20tienda%20online%20para%20mi%20negocio.%20%C2%BFPodemos%20hablar%3F" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 rounded-xl font-semibold text-lg transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            +53 50121476
+                        </a>
+                    </div>
+                    
+                    <p class="text-slate-500 text-sm mt-6">Respuesta en menos de 1 hora • Sin compromiso</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg">
+                        JA
+                    </div>
+                    <span class="font-bold text-lg">CubanCode</span>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <a href="https://wa.me/5350121476" target="_blank" class="text-slate-400 hover:text-white transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <p class="text-slate-500 text-sm">© 2025 JA CubanCode. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5350121476?text=Hola%2C%20vi%20tu%20página%20y%20me%20interesa%20una%20tienda%20online" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all pulse-glow">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Scroll fade animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-slate-900/95');
+            } else {
+                nav.classList.remove('bg-slate-900/95');
+            }
+        });
+    </script>
+</body>
+</html>
