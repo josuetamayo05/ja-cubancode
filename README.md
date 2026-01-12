@@ -8,7 +8,7 @@
 
 Landing page profesional para **JA CubanCode**, servicios de desarrollo de tiendas online para negocios en Cuba.
 
-### 🌐 [Ver Demo en Vivo](https://TU_USUARIO.github.io/ja-cubancode/)
+### 🌐 [Ver Demo en Vivo](https://josuetamayo05.github.io/ja-cubancode/)
 
 ---
 
