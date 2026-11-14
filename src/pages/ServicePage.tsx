@@ -1,145 +1,139 @@
-import { useEffect, useMemo } from "react";
-import { Link, useParams } from "react-router-dom";
-import { siteData } from "../data/siteData";
-import FAQ from "../components/sections/FAQ";
+import { motion } from "framer-motion";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { ArrowLeft, Check } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import { siteData, whatsappLink } from "../data/siteData";
+import { fadeUp, reveal } from "../lib/motion";
+import { useDocumentTitle } from "../lib/useDocumentTitle";
+import { FAQList } from "../components/sections/FAQ";
+import NotFound from "./NotFound";
 
-function buildWhatsAppLink(serviceTitle: string) {
-  const msg = encodeURIComponent(
-    `Hola, me interesa el servicio: ${serviceTitle}. ¿Podemos conversar sobre mi proyecto?`
-  );
-  return `${siteData.brand.whatsapp}?text=${msg}`;
-}
+/** Enlaces antiguos que ahora apuntan a otro servicio. */
+const legacySlugs: Record<string, string> = {
+  ecommerce: "web",
+  restaurantes: "web",
+};
 
 export default function ServicePage() {
-  const { slug } = useParams();
+  const { slug = "" } = useParams();
+  const service = siteData.services.find((s) => s.slug === slug);
 
-  const service = useMemo(
-    () => siteData.services.find((s) => s.slug === slug),
-    [slug]
-  );
+  useDocumentTitle(service?.title ?? "Servicio no encontrado");
 
-  useEffect(() => {
-    if (!service) {
-      document.title = `${siteData.brand.name} | Servicio no encontrado`;
-      return;
-    }
-    document.title = `${service.title} | ${siteData.brand.name}`;
-  }, [service]);
-
-  if (!service) {
-    return (
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-brand-cyan font-semibold">404</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mt-2">
-            Servicio no encontrado
-          </h1>
-          <p className="text-slate-400 mt-4">
-            El servicio que buscas no existe o el enlace está mal.
-          </p>
-
-          <Link
-            to="/"
-            className="inline-flex mt-8 px-6 py-3 bg-brand-cyan text-dark-bg font-bold rounded-full"
-          >
-            Volver al inicio
-          </Link>
-        </div>
-      </section>
-    );
+  if (legacySlugs[slug]) {
+    return <Navigate to={`/servicios/${legacySlugs[slug]}`} replace />;
   }
 
-  const details = service.details;
+  if (!service) {
+    return <NotFound title="Servicio no encontrado" />;
+  }
+
+  const Icon = service.icon;
+  const { details } = service;
+  const relatedProjects = siteData.projects.filter((p) => p.caseStudy).slice(0, 3);
 
   return (
-    <section className="pt-32 pb-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-8">
-          <Link to="/" className="text-slate-400 hover:text-white transition-colors">
-            ← Inicio
-          </Link>
-          <span className="text-slate-600"> / </span>
-          <span className="text-slate-300">{service.title}</span>
-        </div>
+    <article className="pb-24 pt-28 sm:pt-32">
+      <div className="container-page">
+        <Link
+          to="/#servicios"
+          className="inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-zinc-100"
+        >
+          <ArrowLeft size={16} /> Todos los servicios
+        </Link>
 
-        <div className="relative overflow-hidden rounded-3xl glass-panel border border-white/10 p-8 md:p-12">
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-hero-glow blur-[90px] opacity-30 pointer-events-none" />
+        <motion.header initial="hidden" animate="visible" variants={fadeUp} className="mt-8 max-w-3xl">
+          <span className="grid h-12 w-12 place-items-center rounded-xl border border-white/[0.08] bg-ink-900 text-accent">
+            <Icon size={22} />
+          </span>
+          <h1 className="mt-6 text-4xl font-semibold sm:text-5xl">{service.title}</h1>
+          <p className="mt-5 text-lg leading-relaxed">{details.subtitle}</p>
+          <a
+            href={whatsappLink(`Hola Josué, me interesa el servicio de ${service.title}.`)}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary mt-8 px-6 py-3.5"
+          >
+            <FaWhatsapp size={18} /> Hablemos de tu proyecto
+          </a>
+        </motion.header>
 
-          <p className="text-brand-cyan font-semibold">Servicio</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mt-2">
-            {service.title}
-          </h1>
-          <p className="text-slate-400 mt-4 text-lg max-w-2xl">
-            {details?.subtitle ?? service.desc}
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a
-              href={buildWhatsAppLink(service.title)}
-              target="_blank"
-              rel="noreferrer"
-              className="px-8 py-4 bg-brand-cyan text-dark-bg font-bold rounded-full text-center hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all"
-            >
-              {details?.ctaText ?? "Cotizar este servicio"}
-            </a>
-
-            <a
-              href="/#contacto"
-              className="px-8 py-4 glass-panel text-white font-semibold rounded-full text-center hover:bg-white/10 transition-all"
-            >
-              Ver contacto
-            </a>
-          </div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-6 mt-10">
-          <div className="glass-panel rounded-2xl p-8">
-            <h2 className="text-xl font-bold text-white mb-4">Incluye</h2>
-            <ul className="space-y-2 text-slate-300">
-              {(details?.features ?? []).length ? (
-                details!.features.map((f) => <li key={f}>• {f}</li>)
-              ) : (
-                <li className="text-slate-400">
-                  (Añade features en <code>siteData.services[].details.features</code>)
+        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+          <motion.section {...reveal} className="card p-7">
+            <h2 className="eyebrow">Qué puedo hacer</h2>
+            <ul className="mt-5 space-y-3">
+              {details.features.map((f) => (
+                <li key={f} className="flex gap-3 text-sm leading-relaxed">
+                  <Check size={16} className="mt-0.5 shrink-0 text-accent" />
+                  {f}
                 </li>
-              )}
+              ))}
             </ul>
-          </div>
+          </motion.section>
 
-          <div className="glass-panel rounded-2xl p-8">
-            <h2 className="text-xl font-bold text-white mb-4">Entregables</h2>
-            <ul className="space-y-2 text-slate-300">
-              {(details?.deliverables ?? []).length ? (
-                details!.deliverables.map((d) => <li key={d}>• {d}</li>)
-              ) : (
-                <li className="text-slate-400">
-                  (Añade deliverables en <code>details.deliverables</code>)
+          <motion.section {...reveal} className="card p-7">
+            <h2 className="eyebrow">Qué recibes</h2>
+            <ul className="mt-5 space-y-3">
+              {details.deliverables.map((d) => (
+                <li key={d} className="flex gap-3 text-sm leading-relaxed">
+                  <Check size={16} className="mt-0.5 shrink-0 text-accent" />
+                  {d}
                 </li>
-              )}
+              ))}
             </ul>
-          </div>
+          </motion.section>
         </div>
-        
-        <FAQ items={details?.faq ?? siteData.faq} />
 
-        <div className="mt-12">
-          <h3 className="text-lg font-bold text-white mb-4">Otros servicios</h3>
-          <div className="flex flex-wrap gap-3">
+        {details.faq && details.faq.length > 0 && (
+          <section className="mt-20 grid gap-10 lg:grid-cols-[1fr_1.6fr]">
+            <h2 className="text-2xl font-semibold">Preguntas frecuentes</h2>
+            <FAQList items={details.faq} />
+          </section>
+        )}
+
+        <section className="mt-20">
+          <h2 className="eyebrow">Trabajos recientes</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {relatedProjects.map((p) => (
+              <Link
+                key={p.slug}
+                to={`/proyectos/${p.slug}`}
+                className="card group overflow-hidden transition-colors hover:border-white/20"
+              >
+                {p.cover && (
+                  <img
+                    src={p.cover.src}
+                    alt={p.cover.alt}
+                    loading="lazy"
+                    className="aspect-[16/10] w-full border-b border-white/[0.07] object-cover object-top"
+                  />
+                )}
+                <div className="p-4">
+                  <p className="font-medium text-zinc-100">{p.title}</p>
+                  <p className="mt-0.5 text-xs text-zinc-500">{p.kind}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-20">
+          <h2 className="eyebrow">Otros servicios</h2>
+          <div className="mt-5 flex flex-wrap gap-2">
             {siteData.services
               .filter((s) => s.slug !== service.slug)
-              .slice(0, 5)
               .map((s) => (
                 <Link
                   key={s.slug}
                   to={`/servicios/${s.slug}`}
-                  className="px-4 py-2 rounded-full glass-panel hover:border-brand-cyan/50 transition-all text-slate-200"
+                  className="rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-300 transition-colors hover:border-white/25 hover:text-zinc-50"
                 >
-                  {s.title} →
+                  {s.title}
                 </Link>
               ))}
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </article>
   );
 }

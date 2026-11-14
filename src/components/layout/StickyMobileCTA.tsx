@@ -1,18 +1,16 @@
-import { MessageCircle } from "lucide-react";
-import { siteData } from "../../data/siteData";
+import { FaWhatsapp } from "react-icons/fa";
+import { whatsappLink } from "../../data/siteData";
 
 export default function StickyMobileCTA() {
   return (
-    <div className="md:hidden fixed bottom-6 right-6 z-50">
-      <a
-        href={siteData.brand.whatsapp}
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center justify-center w-14 h-14 bg-brand-cyan text-dark-bg rounded-full shadow-[0_4px_20px_rgba(0,240,255,0.4)]"
-        aria-label="Contactar por WhatsApp"
-      >
-        <MessageCircle size={28} />
-      </a>
-    </div>
+    <a
+      href={whatsappLink("Hola Josué, vi tu web y me gustaría hablar contigo.")}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Escribir por WhatsApp"
+      className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-accent text-ink-950 shadow-lg shadow-black/40 md:hidden"
+    >
+      <FaWhatsapp size={26} />
+    </a>
   );
 }

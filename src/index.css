@@ -1,19 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .glass-panel {
-    @apply bg-dark-surface/60 backdrop-blur-md border border-white/5;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
-  .glass-panel-solid {
-    @apply bg-dark-surface/95 backdrop-blur-xl border border-white/10;
+
+  body {
+    @apply bg-ink-950 font-sans text-zinc-400 antialiased selection:bg-accent/25 selection:text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-zinc-50 tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-ink-950;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-body {
-  @apply bg-dark-bg text-slate-300 font-sans antialiased selection:bg-brand-cyan/30 selection:text-brand-cyan;
-}
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
 
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-ink-900;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-accent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-ink-950 hover:bg-accent-soft;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/10 text-zinc-100 hover:border-white/25 hover:bg-white/[0.04];
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] text-zinc-300;
+  }
+}

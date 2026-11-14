@@ -1,68 +1,32 @@
-import { MessageCircle } from "lucide-react";
+import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import { siteData } from "../../data/siteData";
-import { FaInstagram, FaFacebook, FaGithub } from "react-icons/fa";
+
+const socials = [
+  { href: siteData.brand.github, label: "GitHub", Icon: FaGithub },
+  { href: siteData.brand.instagram, label: "Instagram", Icon: FaInstagram },
+  { href: siteData.brand.facebook, label: "Facebook", Icon: FaFacebook },
+];
 
 export default function Footer() {
   return (
-    <footer
-      id="contacto"
-      className="border-t border-white/10 bg-dark-surface/50 pt-16 pb-8 px-6"
-    >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center border-b border-white/10 pb-8 mb-8">
-        <div>
-          <h2 className="text-3xl font-bold text-white mb-4">
-            ¿Listo para escalar tu negocio?
-          </h2>
-          <p className="text-slate-400 max-w-md">
-            Escríbeme y agendamos una consulta gratuita para analizar tu proyecto.
-          </p>
-        </div>
-
-        <div className="flex justify-start md:justify-end">
-          <a
-            href={siteData.brand.whatsapp}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2 px-8 py-4 bg-white text-dark-bg font-bold rounded-full hover:bg-brand-cyan transition-colors"
-          >
-            <MessageCircle size={20} /> Iniciar chat
-          </a>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+    <footer className="border-t border-white/[0.07] py-10">
+      <div className="container-page flex flex-col items-start justify-between gap-6 text-sm text-zinc-500 sm:flex-row sm:items-center">
         <p>
-          © {new Date().getFullYear()} {siteData.brand.name} — {siteData.brand.tagline}
+          © {new Date().getFullYear()} {siteData.person.name} · {siteData.brand.name}
         </p>
-
-        <div className="flex gap-4">
-          <a
-            href={siteData.brand.instagram}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-cyan transition-colors"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={20} />
-          </a>
-          <a
-            href={siteData.brand.facebook}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-cyan transition-colors"
-            aria-label="Facebook"
-          >
-            <FaFacebook size={20} />
-          </a>
-          <a
-            href={siteData.brand.github}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-brand-cyan transition-colors"
-            aria-label="GitHub"
-          >
-            <FaGithub size={20} />
-          </a>
+        <div className="flex gap-2">
+          {socials.map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              className="grid h-9 w-9 place-items-center rounded-full text-zinc-400 transition-colors hover:bg-white/[0.05] hover:text-zinc-100"
+            >
+              <Icon size={17} />
+            </a>
+          ))}
         </div>
       </div>
     </footer>

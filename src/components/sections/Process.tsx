@@ -1,29 +1,23 @@
+import { motion } from "framer-motion";
 import { siteData } from "../../data/siteData";
+import { reveal } from "../../lib/motion";
+import SectionHeader from "../ui/SectionHeader";
 
 export default function Process() {
   return (
-    <section id="proceso" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-          Nuestro método de trabajo
-        </h2>
+    <section id="proceso" className="section border-t border-white/[0.06]">
+      <div className="container-page">
+        <SectionHeader eyebrow="Cómo trabajo" title="Un proceso claro, sin sorpresas." />
 
-        <div className="grid md:grid-cols-4 gap-8 relative">
-          <div className="hidden md:block absolute top-6 left-0 w-full h-[1px] bg-gradient-to-r from-brand-cyan/0 via-brand-cyan/50 to-brand-violet/0" />
-
-          {siteData.process.map((step) => (
-            <div
-              key={step.step}
-              className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left"
-            >
-              <div className="w-12 h-12 rounded-full bg-dark-bg border border-brand-cyan text-brand-cyan flex items-center justify-center font-bold text-lg mb-6 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
-                {step.step}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-              <p className="text-slate-400 text-sm">{step.desc}</p>
-            </div>
+        <motion.ol {...reveal} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {siteData.process.map((p) => (
+            <li key={p.step} className="border-t border-white/10 pt-6">
+              <span className="font-mono text-sm text-accent">{p.step}</span>
+              <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed">{p.desc}</p>
+            </li>
           ))}
-        </div>
+        </motion.ol>
       </div>
     </section>
   );

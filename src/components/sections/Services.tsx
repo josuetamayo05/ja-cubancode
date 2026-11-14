@@ -1,49 +1,51 @@
 import { motion } from "framer-motion";
-import type { ElementType } from "react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { siteData } from "../../data/siteData";
-import { fadeUp, staggerContainer } from "../../lib/motion";
+import { reveal } from "../../lib/motion";
+import SectionHeader from "../ui/SectionHeader";
 
 export default function Services() {
   return (
-    <section id="servicios" className="py-24 px-6 bg-dark-surface/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            ¿Qué podemos construir?
-          </h2>
-          <p className="text-slate-400">
-            Soluciones digitales enfocadas en resultados para pymes y emprendedores.
-          </p>
-        </div>
+    <section id="servicios" className="section border-t border-white/[0.06]">
+      <div className="container-page">
+        <SectionHeader
+          eyebrow="Servicios"
+          title="¿Necesitas desarrollar algo? Puedo ayudarte."
+          desc="Trabajo con negocios y emprendedores que necesitan una web, una app o una herramienta a medida. Cada proyecto se cotiza según su alcance."
+        />
 
         <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          {...reveal}
+          className="grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3"
         >
-          {siteData.services.map((svc) => {
-            const Icon = svc.icon as unknown as ElementType;
-
+          {siteData.services.map((s) => {
+            const Icon = s.icon;
             return (
-              <motion.div key={svc.slug} variants={fadeUp}>
-                <Link to={`/servicios/${svc.slug}`} className="block h-full">
-                  <div className="glass-panel p-8 rounded-2xl hover:border-brand-cyan/50 hover:-translate-y-1 transition-all duration-300 group h-full">
-                    <div className="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center mb-6 text-brand-cyan group-hover:scale-110 transition-transform">
-                      <Icon size={24} />
-                    </div>
-
-                    <h3 className="text-xl font-bold text-white mb-3">{svc.title}</h3>
-                    <p className="text-slate-400 leading-relaxed">{svc.desc}</p>
-
-                    <div className="mt-6 text-brand-cyan font-semibold">
-                      Ver detalles →
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+              <Link
+                key={s.slug}
+                to={`/servicios/${s.slug}`}
+                className="group relative flex flex-col bg-ink-900 p-7 transition-colors hover:bg-ink-850"
+              >
+                <div className="flex items-start justify-between">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-white/[0.08] bg-ink-850 text-accent">
+                    <Icon size={18} />
+                  </span>
+                  <ArrowUpRight
+                    size={18}
+                    className="text-zinc-600 transition-colors group-hover:text-accent"
+                  />
+                </div>
+                <h3 className="mt-6 flex items-center gap-2 text-base font-semibold">
+                  {s.title}
+                  {s.badge && (
+                    <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-medium text-accent">
+                      {s.badge}
+                    </span>
+                  )}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed">{s.desc}</p>
+              </Link>
             );
           })}
         </motion.div>

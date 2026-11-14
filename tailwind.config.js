@@ -1,30 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Geist"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ['"Geist Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
-        dark: {
-          bg: '#0B0E14',
-          surface: '#151A23',
-          border: '#232A3B',
+        ink: {
+          950: "#09090B",
+          900: "#0E0E11",
+          850: "#131317",
+          800: "#18181D",
+          700: "#26262D",
         },
-        brand: {
-          cyan: '#00F0FF',
-          violet: '#7000FF',
-        }
+        accent: {
+          DEFAULT: "#2DD4BF",
+          soft: "#5EEAD4",
+          dim: "#134E4A",
+        },
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #7000FF55 0deg, #00F0FF55 180deg, #7000FF55 360deg)',
-      }
+      maxWidth: {
+        page: "72rem",
+      },
     },
   },
   plugins: [],
-}
+};

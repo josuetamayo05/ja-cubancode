@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
@@ -6,14 +7,16 @@ import ScrollToTop from "../components/layout/ScrollToTop";
 
 export default function AppLayout() {
   return (
-    <div className="min-h-screen bg-dark-bg selection:bg-brand-cyan/30">
-      <Navbar />
-      <ScrollToTop />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-      <StickyMobileCTA />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <ScrollToTop />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        <StickyMobileCTA />
+      </div>
+    </MotionConfig>
   );
 }
