@@ -121,6 +121,35 @@ export const siteData: SiteData = {
       },
     },
     {
+      slug: "js-concept",
+      title: "JS Concept",
+      client: "Negocio propio · Ropa deportiva",
+      kind: "E‑commerce",
+      category: "web",
+      summary:
+        "Tienda online de mi propio negocio de ropa deportiva, tecnología y suplementos: catálogo con búsqueda y filtros, carrito y pedido por WhatsApp, con panel de administración.",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Zustand", "Firebase", "Cloudinary", "Vite"],
+      cover: {
+        src: "/projects/js-concept.jpg",
+        alt: "Portada de JS Concept: Tu Selección de Vida, con catálogo de ropa deportiva",
+      },
+      liveUrl: "https://jsconcept.site",
+      repoUrl: "https://github.com/josuetamayo05/Gym-Shop",
+      caseStudy: {
+        context:
+          "Necesitaba un canal de venta propio para mi negocio, donde los clientes pudieran ver todo el catálogo ordenado en lugar de depender de publicaciones sueltas en redes.",
+        solution:
+          "Una tienda con estética limpia y editorial, catálogo filtrable por categoría y tipo de producto, y un carrito que envía el pedido por WhatsApp. Los productos se gestionan desde un panel de administración propio, con imágenes alojadas en Cloudinary.",
+        highlights: [
+          "Búsqueda, filtros por categoría y tipo de producto, y ordenación",
+          "Ficha de producto compartible desde redes",
+          "Carrito con pedido directo por WhatsApp",
+          "Panel de administración con Firebase y subida de imágenes a Cloudinary",
+        ],
+        role: "Producto completo: negocio, diseño, desarrollo y despliegue.",
+      },
+    },
+    {
       slug: "marianne-houses",
       title: "Marianne Houses",
       client: "Inmobiliaria · La Habana",
