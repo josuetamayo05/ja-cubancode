@@ -27,7 +27,7 @@ export const siteData: SiteData = {
 
   brand: {
     name: "JA CubanCode",
-    siteUrl: "https://ja-cubancode.vercel.app",
+    siteUrl: "https://jacubancode.com",
     whatsappNumber: "5350121476",
     whatsappDisplay: "+53 5012 1476",
     instagram: "https://www.instagram.com/jacubancode",
