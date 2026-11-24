@@ -85,7 +85,7 @@ export const siteData: SiteData = {
       slug: "vendeflex",
       title: "VendeFlex",
       kind: "SaaS · PWA",
-      category: "app",
+      category: "software",
       year: "2026",
       status: "En evolución",
       featured: true,
@@ -121,6 +121,36 @@ export const siteData: SiteData = {
       },
     },
     {
+      slug: "marianne-houses",
+      title: "Marianne Houses",
+      client: "Inmobiliaria · La Habana",
+      kind: "Web inmobiliaria",
+      category: "web",
+      summary:
+        "Sitio para una inmobiliaria de residencias de alto nivel: catálogo de propiedades en venta y renta, con panel de administración propio.",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Firebase", "Cloudinary", "Python"],
+      cover: {
+        src: "/projects/marianne-houses.jpg",
+        alt: "Portada de Marianne Houses: Exclusividad y elegancia en La Habana",
+      },
+      liveUrl: "https://mariannehouses.com",
+      repoUrl: "https://github.com/josuetamayo05/Real-Estate-Project",
+      caseStudy: {
+        context:
+          "La inmobiliaria necesitaba un catálogo propio, con una imagen a la altura de sus propiedades, que su equipo pudiera actualizar sin depender de un programador.",
+        solution:
+          "Diseñé una web de estética premium y un panel de administración con acceso protegido para crear y editar propiedades. Las imágenes se sirven optimizadas desde Cloudinary y cada propiedad tiene su propia página, lista para compartir y posicionar en buscadores.",
+        highlights: [
+          "Catálogo con filtros por zona y tipo de operación (venta o renta)",
+          "Ficha de propiedad con galería y contacto directo por WhatsApp",
+          "Panel de administración con inicio de sesión (Firebase)",
+          "Imágenes optimizadas en Cloudinary, con scripts de carga masiva en Python",
+          "SEO técnico: metadatos por página, sitemap y robots.txt",
+        ],
+        role: "Diseño, desarrollo frontend, panel de administración y despliegue.",
+      },
+    },
+    {
       slug: "js-concept",
       title: "JS Concept",
       client: "Negocio propio · Ropa deportiva",
@@ -150,33 +180,34 @@ export const siteData: SiteData = {
       },
     },
     {
-      slug: "marianne-houses",
-      title: "Marianne Houses",
-      client: "Inmobiliaria · La Habana",
-      kind: "Web inmobiliaria",
-      category: "web",
+      slug: "smart-event-planner",
+      title: "Smart Event Planner",
+      client: "Planificador de Eventos",
+      kind: "App de escritorio",
+      category: "software",
       summary:
-        "Sitio para una inmobiliaria de residencias de alto nivel: catálogo de propiedades en venta y renta, con panel de administración propio.",
-      tech: ["React", "TypeScript", "Tailwind CSS", "Firebase", "Cloudinary", "Python"],
+        "Planificador de eventos y recursos para un entorno hospitalario: calendario, validación de restricciones entre recursos y acceso por usuario.",
+      tech: ["Python", "Flet"],
+      // repoUrl: "https://github.com/josuetamayo05/Smart-Event-Planner",
       cover: {
-        src: "/projects/marianne-houses.jpg",
-        alt: "Portada de Marianne Houses: Exclusividad y elegancia en La Habana",
+        src: "/projects/smart-planner.jpg",
+        alt: "Dashboard del planificador hospitalario con total de eventos, recursos y próximos eventos",
       },
-      liveUrl: "https://mariannehouses.com",
-      repoUrl: "https://github.com/josuetamayo05/Real-Estate-Project",
       caseStudy: {
         context:
-          "La inmobiliaria necesitaba un catálogo propio, con una imagen a la altura de sus propiedades, que su equipo pudiera actualizar sin depender de un programador.",
+          "En un hospital, cada cirugía o prueba depende de que coincidan sala, equipo y personal. Planificarlo a mano lleva a horarios superpuestos, recursos asignados dos veces y procedimientos programados sin el personal necesario.",
         solution:
-          "Diseñé una web de estética premium y un panel de administración con acceso protegido para crear y editar propiedades. Las imágenes se sirven optimizadas desde Cloudinary y cada propiedad tiene su propia página, lista para compartir y posicionar en buscadores.",
+          "Una aplicación de escritorio que reúne eventos, recursos y calendario. Un motor de reglas valida cada evento: comprueba la capacidad y los turnos de los recursos, exige el personal que necesita cada sala e impide combinaciones incompatibles. Si hay un conflicto, explica el motivo.",
         highlights: [
-          "Catálogo con filtros por zona y tipo de operación (venta o renta)",
-          "Ficha de propiedad con galería y contacto directo por WhatsApp",
-          "Panel de administración con inicio de sesión (Firebase)",
-          "Imágenes optimizadas en Cloudinary, con scripts de carga masiva en Python",
-          "SEO técnico: metadatos por página, sitemap y robots.txt",
+          "Detección de solapamientos según las unidades disponibles de cada recurso",
+          "Requisitos por sala: un quirófano exige cirujano, anestesiólogo y dos enfermeras",
+          "Incompatibilidades clínicas, como tomógrafo y radioterapia a la vez",
+          "Disponibilidad semanal y bloqueos por recurso",
+          "Búsqueda automática de los próximos huecos que cumplen todas las reglas",
+          "Calendario diario con franjas seleccionables y búsqueda global",
+          "Inicio de sesión local con contraseñas protegidas con hash (PBKDF2)",
         ],
-        role: "Diseño, desarrollo frontend, panel de administración y despliegue.",
+        role: "Diseño de la interfaz, modelo de datos, motor de validación y desarrollo completo.",
       },
     },
     {
@@ -214,34 +245,6 @@ export const siteData: SiteData = {
       },
     },
     {
-      slug: "sport-shop",
-      title: "Sport Shop",
-      client: "Tienda de ropa deportiva",
-      kind: "E‑commerce",
-      category: "web",
-      summary:
-        "Catálogo de ropa deportiva con carrito, envío a toda Cuba y pago contra entrega coordinado por WhatsApp.",
-      tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      cover: {
-        src: "/projects/sport-shop.jpg",
-        alt: "Portada de Sport Shop: Ropa deportiva de calidad premium",
-      },
-      liveUrl: "https://fut-store.vercel.app",
-      caseStudy: {
-        context:
-          "Una tienda de ropa deportiva quería salir de los mensajes sueltos y tener un catálogo claro que transmitiera confianza para comprar con pago contra entrega.",
-        solution:
-          "Partí de la misma base de e‑commerce que Flower Shop y la adapté a otra marca: otra identidad visual, otras categorías y otros mensajes, en mucho menos tiempo que un desarrollo desde cero.",
-        highlights: [
-          "Catálogo por categorías con carrito",
-          "Pedido por WhatsApp con el resumen del carrito",
-          "Bloques de confianza: envío, calidad, contacto directo y pago flexible",
-          "Base reutilizable: un mismo código, varias tiendas",
-        ],
-        role: "Diseño y desarrollo completo.",
-      },
-    },
-    {
       slug: "agenda-citas",
       title: "Agenda de citas",
       kind: "App móvil",
@@ -260,16 +263,6 @@ export const siteData: SiteData = {
         "Descarga automática de datos de EUR/USD desde MetaTrader 5, análisis por sesiones, alertas en Telegram y un reporte diario en PDF con gráficas.",
       tech: ["Python", "MetaTrader 5", "SQLite", "Telegram API"],
       repoUrl: "https://github.com/josuetamayo05/Bot-MetaTrader-5",
-    },
-    {
-      slug: "smart-event-planner",
-      title: "Smart Event Planner",
-      kind: "App de escritorio",
-      category: "software",
-      summary:
-        "Planificador de eventos y recursos para un entorno hospitalario: calendario, validación de restricciones entre recursos y acceso por usuario.",
-      tech: ["Python", "Flet"],
-      repoUrl: "https://github.com/josuetamayo05/Smart-Event-Planner",
     },
     {
       slug: "instinct-simulator",
