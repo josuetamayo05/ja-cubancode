@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { siteData } from "../data/siteData";
 
-const DEFAULT_TITLE = `${siteData.person.name} · ${siteData.person.role} | ${siteData.brand.name}`;
+const DEFAULT_TITLE = "JA CubanCode | Josué Tamayo, desarrollador full stack";
 
 export function useDocumentTitle(title?: string) {
   useEffect(() => {
